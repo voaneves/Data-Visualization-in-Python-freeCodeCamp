@@ -28,3 +28,7 @@ Os arquivos CSV usados (`adult.data.csv`, `fcc-forum-pageviews.csv`, `epa-sea-le
 ## Aprendizados
 
 Manipulação e limpeza de dados com pandas, operações vetorizadas com NumPy, regressão linear com SciPy e gráficos estatísticos com matplotlib e seaborn.
+
+## License
+
+A licença MIT em [LICENSE](LICENSE) cobre apenas as soluções do autor. Os enunciados dos projetos e o código base (boilerplate) vêm da certificação "Data Analysis with Python" da freeCodeCamp; os repositórios originais do boilerplate não declaram licença, e todos os direitos desse material permanecem com a freeCodeCamp.
