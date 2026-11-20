@@ -1,0 +1,53 @@
+{
+  "repo": "Data-Visualization-in-Python-freeCodeCamp",
+  "branch": "main",
+  "lang": "pt-BR",
+  "license": "MIT",
+  "name": "Data Visualization in Python (freeCodeCamp)",
+  "tagline": "Notebooks que analisam e visualizam dados com Python, em projetos da freeCodeCamp.",
+  "description": "Cinco notebooks de análise e visualização de dados em Python (pandas, NumPy, matplotlib, seaborn), com badge para o Colab.",
+  "logo": {
+    "mark": "DV"
+  },
+  "buttons": [
+    {
+      "id": "landing",
+      "text": "Ver a landing page",
+      "kind": "primary",
+      "font": "sans",
+      "href": "https://voaneves.github.io/Data-Visualization-in-Python-freeCodeCamp/",
+      "landing": false
+    },
+    {
+      "id": "notebooks",
+      "text": "Ver os notebooks",
+      "kind": "secondary",
+      "href": "https://github.com/voaneves/Data-Visualization-in-Python-freeCodeCamp#notebooks",
+      "landing_kind": "primary",
+      "font": "sans"
+    },
+    {
+      "id": "hire",
+      "text": "Vamos conversar",
+      "kind": "primary",
+      "font": "sans",
+      "href": "https://voaneves.com/#contato",
+      "landing": false
+    },
+    {
+      "id": "site",
+      "text": "voaneves.com",
+      "kind": "secondary",
+      "font": "sans",
+      "href": "https://voaneves.com/",
+      "landing": false
+    }
+  ],
+  "features": [
+    "Análise de dados demográficos com pandas (adult.data.csv).",
+    "Média, variância e desvio padrão de uma matriz 3x3 com NumPy.",
+    "Regressão linear do nível do mar projetada até 2050 com SciPy."
+  ],
+  "landing": true,
+  "live_url": "https://voaneves.github.io/Data-Visualization-in-Python-freeCodeCamp/"
+}

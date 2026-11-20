@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Visualization in Python (freeCodeCamp) - Notebooks que analisam e visualizam dados com Python, em projetos da freeCodeCamp.</title>
+<meta name="description" content="Cinco notebooks de análise e visualização de dados em Python (pandas, NumPy, matplotlib, seaborn), com badge para o Colab.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4ead4">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121110">
+<link rel="canonical" href="https://voaneves.github.io/Data-Visualization-in-Python-freeCodeCamp/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20role%3D%22img%22%20aria-label%3D%22Data%20Visualization%20in%20Python%20%28freeCodeCamp%29%20logo%22%3E%20%20%3Cpath%20fill%3D%22%230a0a0a%22%20d%3D%22M256%208a248%20248%200%200%200%200%20496Z%22%2F%3E%20%20%3Cpath%20fill%3D%22%23f4ead4%22%20d%3D%22M256%208a248%20248%200%200%201%200%20496Z%22%2F%3E%20%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22248%22%20fill%3D%22none%22%20stroke%3D%22%230a0a0a%22%20stroke-width%3D%2216%22%2F%3E%20%20%3Cdefs%3E%20%20%20%20%3CclipPath%20id%3D%22vn-l%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22512%22%2F%3E%3C%2FclipPath%3E%20%20%20%20%3CclipPath%20id%3D%22vn-r%22%3E%3Crect%20x%3D%22256%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22512%22%2F%3E%3C%2FclipPath%3E%20%20%3C%2Fdefs%3E%20%20%3Cpath%20fill%3D%22%23f4ead4%22%20clip-path%3D%22url%28%23vn-l%29%22%20d%3D%22M111%20289Q111%20288.4%20112%20288.2L121%20286.9Q122.9%20286.5%20123.8%20285.8Q124.6%20285.2%20124.6%20283.8V150.2Q124.6%20148.9%20123.8%20148.2Q123%20147.5%20121.1%20147.1L111.9%20145.7Q111%20145.6%20111%20145Q111%20144.7%20111.3%20144.5Q111.5%20144.3%20111.9%20144.3H162Q180.9%20144.3%20196.4%20149.8Q212%20155.3%20223.2%20165.7Q234.4%20176.1%20240.5%20191.1Q246.7%20206%20246.7%20224.9Q246.7%20245.4%20237.4%20259.8Q228.2%20274.2%20211.6%20281.9Q194.9%20289.7%20172.8%20289.7H111.9Q111.5%20289.7%20111.2%20289.4Q111%20289.2%20111%20289ZM172.8%20287.7Q185.3%20287.7%20195.1%20280.9Q204.9%20274%20210.6%20259.4Q216.2%20244.9%20216.2%20221.7Q216.2%20203.4%20212.5%20189.3Q208.8%20175.2%20201.8%20165.6Q194.7%20156.1%20184.7%20151.2Q174.8%20146.3%20162.2%20146.3H153.7V284.1Q153.7%20285.7%20154.7%20286.7Q155.7%20287.7%20157.7%20287.7ZM359%20145Q359%20144.7%20359.2%20144.5Q359.5%20144.3%20359.8%20144.3H393.8Q394%20144.3%20394.2%20144.5Q394.5%20144.7%20394.5%20145Q394.5%20145.4%20394.3%20145.5Q394%20145.6%20393.5%20145.8L389.7%20147Q385.8%20148.4%20382.6%20152.3Q379.3%20156.1%20377.3%20162.9L343.8%20274.8Q343.3%20276.7%20343.2%20278.4Q343.1%20280.2%20343.1%20282.2V288.5Q343.1%20289%20342.9%20289.3Q342.6%20289.7%20342%20289.7H316.4Q315.8%20289.7%20315.6%20289.3Q315.3%20289%20315.3%20288.5V282.3Q315.3%20281%20314.8%20279.3Q314.3%20277.6%20313.7%20275.6L274.3%20151.4Q273.7%20149.4%20273.2%20148.5Q272.6%20147.5%20271.4%20147.3L266.6%20146Q265.3%20145.4%20265.3%20145Q265.3%20144.7%20265.6%20144.5Q265.8%20144.3%20266.3%20144.3H317Q317.5%20144.3%20317.7%20144.5Q318%20144.7%20318%20145Q318%20145.3%20317.7%20145.4Q317.4%20145.5%20316.7%20145.8L308.2%20146.9Q305.8%20147.5%20305.3%20148.8Q304.8%20150.2%20305.5%20152.4L343%20273.6L340.1%20280.5L375.2%20163.2Q376.9%20157.5%20375%20153.1Q373.1%20148.7%20365.4%20146.8L360%20145.8Q359.5%20145.6%20359.2%20145.5Q359%20145.4%20359%20145Z%22%2F%3E%20%20%3Cpath%20fill%3D%22%230a0a0a%22%20clip-path%3D%22url%28%23vn-r%29%22%20d%3D%22M111%20289Q111%20288.4%20112%20288.2L121%20286.9Q122.9%20286.5%20123.8%20285.8Q124.6%20285.2%20124.6%20283.8V150.2Q124.6%20148.9%20123.8%20148.2Q123%20147.5%20121.1%20147.1L111.9%20145.7Q111%20145.6%20111%20145Q111%20144.7%20111.3%20144.5Q111.5%20144.3%20111.9%20144.3H162Q180.9%20144.3%20196.4%20149.8Q212%20155.3%20223.2%20165.7Q234.4%20176.1%20240.5%20191.1Q246.7%20206%20246.7%20224.9Q246.7%20245.4%20237.4%20259.8Q228.2%20274.2%20211.6%20281.9Q194.9%20289.7%20172.8%20289.7H111.9Q111.5%20289.7%20111.2%20289.4Q111%20289.2%20111%20289ZM172.8%20287.7Q185.3%20287.7%20195.1%20280.9Q204.9%20274%20210.6%20259.4Q216.2%20244.9%20216.2%20221.7Q216.2%20203.4%20212.5%20189.3Q208.8%20175.2%20201.8%20165.6Q194.7%20156.1%20184.7%20151.2Q174.8%20146.3%20162.2%20146.3H153.7V284.1Q153.7%20285.7%20154.7%20286.7Q155.7%20287.7%20157.7%20287.7ZM359%20145Q359%20144.7%20359.2%20144.5Q359.5%20144.3%20359.8%20144.3H393.8Q394%20144.3%20394.2%20144.5Q394.5%20144.7%20394.5%20145Q394.5%20145.4%20394.3%20145.5Q394%20145.6%20393.5%20145.8L389.7%20147Q385.8%20148.4%20382.6%20152.3Q379.3%20156.1%20377.3%20162.9L343.8%20274.8Q343.3%20276.7%20343.2%20278.4Q343.1%20280.2%20343.1%20282.2V288.5Q343.1%20289%20342.9%20289.3Q342.6%20289.7%20342%20289.7H316.4Q315.8%20289.7%20315.6%20289.3Q315.3%20289%20315.3%20288.5V282.3Q315.3%20281%20314.8%20279.3Q314.3%20277.6%20313.7%20275.6L274.3%20151.4Q273.7%20149.4%20273.2%20148.5Q272.6%20147.5%20271.4%20147.3L266.6%20146Q265.3%20145.4%20265.3%20145Q265.3%20144.7%20265.6%20144.5Q265.8%20144.3%20266.3%20144.3H317Q317.5%20144.3%20317.7%20144.5Q318%20144.7%20318%20145Q318%20145.3%20317.7%20145.4Q317.4%20145.5%20316.7%20145.8L308.2%20146.9Q305.8%20147.5%20305.3%20148.8Q304.8%20150.2%20305.5%20152.4L343%20273.6L340.1%20280.5L375.2%20163.2Q376.9%20157.5%20375%20153.1Q373.1%20148.7%20365.4%20146.8L360%20145.8Q359.5%20145.6%20359.2%20145.5Q359%20145.4%20359%20145Z%22%2F%3E%20%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22343.7%22%20r%3D%2224%22%20fill%3D%22%23d70000%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Data Visualization in Python (freeCodeCamp) - Notebooks que analisam e visualizam dados com Python, em projetos da freeCodeCamp.">
+<meta property="og:description" content="Cinco notebooks de análise e visualização de dados em Python (pandas, NumPy, matplotlib, seaborn), com badge para o Colab.">
+<meta property="og:url" content="https://voaneves.github.io/Data-Visualization-in-Python-freeCodeCamp/">
+<meta property="og:image" content="https://voaneves.github.io/Data-Visualization-in-Python-freeCodeCamp/logo-512.png">
+<meta property="og:image:alt" content="Data Visualization in Python (freeCodeCamp) logo">
+<meta name="twitter:card" content="summary">
+<style>
+:root{
+  --surface:#f4ead4;
+  --surface-alt:#e8dec5;
+  --text:#0a0a0a;
+  --muted:#4a4437;
+  --link:#b80000;
+  --focus:#b80000;
+  --btn-primary-fill:#0a0a0a;
+  --btn-primary-text:#f4ead4;
+  --btn-primary-signal:#ff3838;
+  --btn-secondary-fill:#f4ead4;
+  --btn-secondary-text:#0a0a0a;
+  --btn-secondary-border:#0a0a0a;
+  --btn-command-prompt:#b80000;
+  --logo-ink:#0a0a0a;
+  --logo-paper:#f4ead4;
+  --logo-ring:#0a0a0a;
+  --logo-signal:#d70000;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+  --surface:#121110;
+    --surface-alt:#1c1a17;
+    --text:#f4ead4;
+    --muted:#b8ae98;
+    --link:#ff5a5a;
+    --focus:#ff5a5a;
+    --btn-primary-fill:#e8dec5;
+    --btn-primary-text:#0a0a0a;
+    --btn-primary-signal:#b80000;
+    --btn-secondary-fill:#1c1a17;
+    --btn-secondary-text:#e8dec5;
+    --btn-secondary-border:#8a816f;
+    --btn-command-prompt:#ff5a5a;
+    --logo-ink:#0a0a0a;
+    --logo-paper:#f4ead4;
+    --logo-ring:#e8dec5;
+    --logo-signal:#d70000;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--text);font:1.0625rem/1.6 var(--sans)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.skip{position:absolute;left:1rem;top:-4rem;padding:.75rem 1rem;background:var(--btn-primary-fill);color:var(--btn-primary-text);border-radius:4px;font-weight:600;z-index:10}
+.skip:focus{top:1rem}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{width:100%;max-width:60rem;margin:0 auto;padding:0 1rem}
+.hero{padding:4rem 0 3rem;text-align:center}
+.logo{display:block;margin:0 auto 1.5rem;width:7rem;height:7rem}
+.logo-img{display:block;margin:0 auto 1.5rem;max-width:100%;height:auto}
+h1{margin:0;font-size:clamp(2rem,6vw,3.25rem);line-height:1.1;letter-spacing:-.02em}
+.tagline{margin:1rem auto 0;max-width:34rem;font-size:clamp(1.15rem,3.2vw,1.45rem);font-weight:700;line-height:1.35}
+.lead{margin:1rem auto 0;max-width:36rem;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin:2rem 0 0;padding:0;list-style:none}
+.btn{display:inline-flex;align-items:center;gap:.6rem;min-height:3rem;padding:0 1.25rem;border:1.5px solid transparent;border-radius:4px;font-weight:600;font-size:1rem;line-height:1;text-decoration:none;max-width:100%}
+.btn-primary{background:var(--btn-primary-fill);color:var(--btn-primary-text)}
+.btn-secondary{background:var(--btn-secondary-fill);color:var(--btn-secondary-text);border-color:var(--btn-secondary-border)}
+.btn-command{font-family:var(--mono);font-weight:500;font-size:.9375rem}
+.dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--btn-primary-signal);flex:none}
+.prompt{color:var(--btn-command-prompt)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s ease}.btn:hover{transform:translateY(-1px)}}
+section{padding:2.5rem 0}
+h2{margin:0 0 1.25rem;font-size:1.5rem;line-height:1.25;letter-spacing:-.01em}
+.features{display:grid;gap:1rem;margin:0;padding:0;list-style:none;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.features li{padding:1.25rem;border-radius:8px;background:var(--surface-alt)}
+.features h3{margin:0 0 .35rem;font-size:1.0625rem}
+.features p{margin:0}
+.shot{margin:0}
+.shot img{display:block;width:100%;height:auto;border-radius:8px;background:var(--surface-alt)}
+.contact{text-align:center}
+.contact p{margin:0 auto 1.25rem;max-width:34rem;color:var(--muted)}
+a{color:var(--link);text-underline-offset:.2em}
+a.btn{text-decoration:none}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9375rem;text-align:center}
+footer p{margin:0}
+@media (max-width:30rem){.hero{padding-top:2.5rem}.btn{width:100%;justify-content:center}.actions{flex-direction:column;align-items:stretch}.actions li{display:flex}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Ir para o conteúdo</a>
+<main id="main">
+  <div class="wrap">
+    <section class="hero" aria-labelledby="name">
+      <svg class="logo" viewBox="0 0 512 512" width="112" height="112" aria-hidden="true" focusable="false">
+  <path fill="var(--logo-ink)" d="M256 8a248 248 0 0 0 0 496Z"/>
+  <path fill="var(--logo-paper)" d="M256 8a248 248 0 0 1 0 496Z"/>
+  <circle cx="256" cy="256" r="248" fill="none" stroke="var(--logo-ring)" stroke-width="16"/>
+  <defs>
+    <clipPath id="vn-hero-l"><rect x="0" y="0" width="256" height="512"/></clipPath>
+    <clipPath id="vn-hero-r"><rect x="256" y="0" width="256" height="512"/></clipPath>
+  </defs>
+  <path fill="var(--logo-paper)" clip-path="url(#vn-hero-l)" d="M111 289Q111 288.4 112 288.2L121 286.9Q122.9 286.5 123.8 285.8Q124.6 285.2 124.6 283.8V150.2Q124.6 148.9 123.8 148.2Q123 147.5 121.1 147.1L111.9 145.7Q111 145.6 111 145Q111 144.7 111.3 144.5Q111.5 144.3 111.9 144.3H162Q180.9 144.3 196.4 149.8Q212 155.3 223.2 165.7Q234.4 176.1 240.5 191.1Q246.7 206 246.7 224.9Q246.7 245.4 237.4 259.8Q228.2 274.2 211.6 281.9Q194.9 289.7 172.8 289.7H111.9Q111.5 289.7 111.2 289.4Q111 289.2 111 289ZM172.8 287.7Q185.3 287.7 195.1 280.9Q204.9 274 210.6 259.4Q216.2 244.9 216.2 221.7Q216.2 203.4 212.5 189.3Q208.8 175.2 201.8 165.6Q194.7 156.1 184.7 151.2Q174.8 146.3 162.2 146.3H153.7V284.1Q153.7 285.7 154.7 286.7Q155.7 287.7 157.7 287.7ZM359 145Q359 144.7 359.2 144.5Q359.5 144.3 359.8 144.3H393.8Q394 144.3 394.2 144.5Q394.5 144.7 394.5 145Q394.5 145.4 394.3 145.5Q394 145.6 393.5 145.8L389.7 147Q385.8 148.4 382.6 152.3Q379.3 156.1 377.3 162.9L343.8 274.8Q343.3 276.7 343.2 278.4Q343.1 280.2 343.1 282.2V288.5Q343.1 289 342.9 289.3Q342.6 289.7 342 289.7H316.4Q315.8 289.7 315.6 289.3Q315.3 289 315.3 288.5V282.3Q315.3 281 314.8 279.3Q314.3 277.6 313.7 275.6L274.3 151.4Q273.7 149.4 273.2 148.5Q272.6 147.5 271.4 147.3L266.6 146Q265.3 145.4 265.3 145Q265.3 144.7 265.6 144.5Q265.8 144.3 266.3 144.3H317Q317.5 144.3 317.7 144.5Q318 144.7 318 145Q318 145.3 317.7 145.4Q317.4 145.5 316.7 145.8L308.2 146.9Q305.8 147.5 305.3 148.8Q304.8 150.2 305.5 152.4L343 273.6L340.1 280.5L375.2 163.2Q376.9 157.5 375 153.1Q373.1 148.7 365.4 146.8L360 145.8Q359.5 145.6 359.2 145.5Q359 145.4 359 145Z"/>
+  <path fill="var(--logo-ink)" clip-path="url(#vn-hero-r)" d="M111 289Q111 288.4 112 288.2L121 286.9Q122.9 286.5 123.8 285.8Q124.6 285.2 124.6 283.8V150.2Q124.6 148.9 123.8 148.2Q123 147.5 121.1 147.1L111.9 145.7Q111 145.6 111 145Q111 144.7 111.3 144.5Q111.5 144.3 111.9 144.3H162Q180.9 144.3 196.4 149.8Q212 155.3 223.2 165.7Q234.4 176.1 240.5 191.1Q246.7 206 246.7 224.9Q246.7 245.4 237.4 259.8Q228.2 274.2 211.6 281.9Q194.9 289.7 172.8 289.7H111.9Q111.5 289.7 111.2 289.4Q111 289.2 111 289ZM172.8 287.7Q185.3 287.7 195.1 280.9Q204.9 274 210.6 259.4Q216.2 244.9 216.2 221.7Q216.2 203.4 212.5 189.3Q208.8 175.2 201.8 165.6Q194.7 156.1 184.7 151.2Q174.8 146.3 162.2 146.3H153.7V284.1Q153.7 285.7 154.7 286.7Q155.7 287.7 157.7 287.7ZM359 145Q359 144.7 359.2 144.5Q359.5 144.3 359.8 144.3H393.8Q394 144.3 394.2 144.5Q394.5 144.7 394.5 145Q394.5 145.4 394.3 145.5Q394 145.6 393.5 145.8L389.7 147Q385.8 148.4 382.6 152.3Q379.3 156.1 377.3 162.9L343.8 274.8Q343.3 276.7 343.2 278.4Q343.1 280.2 343.1 282.2V288.5Q343.1 289 342.9 289.3Q342.6 289.7 342 289.7H316.4Q315.8 289.7 315.6 289.3Q315.3 289 315.3 288.5V282.3Q315.3 281 314.8 279.3Q314.3 277.6 313.7 275.6L274.3 151.4Q273.7 149.4 273.2 148.5Q272.6 147.5 271.4 147.3L266.6 146Q265.3 145.4 265.3 145Q265.3 144.7 265.6 144.5Q265.8 144.3 266.3 144.3H317Q317.5 144.3 317.7 144.5Q318 144.7 318 145Q318 145.3 317.7 145.4Q317.4 145.5 316.7 145.8L308.2 146.9Q305.8 147.5 305.3 148.8Q304.8 150.2 305.5 152.4L343 273.6L340.1 280.5L375.2 163.2Q376.9 157.5 375 153.1Q373.1 148.7 365.4 146.8L360 145.8Q359.5 145.6 359.2 145.5Q359 145.4 359 145Z"/>
+  <circle cx="256" cy="343.7" r="24" fill="var(--logo-signal)"/>
+      </svg>
+      <h1 id="name">Data Visualization in Python (freeCodeCamp)</h1>
+      <p class="tagline">Notebooks que analisam e visualizam dados com Python, em projetos da freeCodeCamp.</p>
+      <p class="lead">Cinco notebooks de análise e visualização de dados em Python (pandas, NumPy, matplotlib, seaborn), com badge para o Colab.</p>
+      <ul class="actions">
+        <li><a class="btn btn-primary" href="https://github.com/voaneves/Data-Visualization-in-Python-freeCodeCamp#notebooks"><span class="dot" aria-hidden="true"></span><span>Ver os notebooks</span><span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </section>
+    <section aria-labelledby="features-title">
+      <h2 id="features-title">Destaques</h2>
+      <ul class="features">
+        <li><p>Análise de dados demográficos com pandas (adult.data.csv).</p></li>
+        <li><p>Média, variância e desvio padrão de uma matriz 3x3 com NumPy.</p></li>
+        <li><p>Regressão linear do nível do mar projetada até 2050 com SciPy.</p></li>
+      </ul>
+    </section>
+    <section class="contact" aria-labelledby="hire-title">
+      <h2 id="hire-title">Precisa de algo assim?</h2>
+      <p>Eu crio e entrego projetos como este para equipes. Conte o que você precisa.</p>
+      <a class="btn btn-primary" href="https://voaneves.com/#contato"><span class="dot" aria-hidden="true"></span><span>Vamos conversar</span><span aria-hidden="true">&rarr;</span></a>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <p>Licença MIT. <a href="https://github.com/voaneves/Data-Visualization-in-Python-freeCodeCamp">GitHub</a></p>
+  </div>
+</footer>
+</body>
+</html>
