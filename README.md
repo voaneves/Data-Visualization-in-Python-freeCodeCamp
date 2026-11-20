@@ -5,7 +5,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/voaneves/Data-Visualization-in-Python-freeCodeCamp/main/assets/logo/logo-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/voaneves/Data-Visualization-in-Python-freeCodeCamp/main/assets/logo/logo-light.svg" />
-  <img alt="Logo do projeto Data Visualization in Python: o monograma DV" src="https://raw.githubusercontent.com/voaneves/Data-Visualization-in-Python-freeCodeCamp/main/assets/logo/logo-light.svg" width="112" height="112" />
+  <img alt="Logo do Data Visualization in Python (freeCodeCamp): um gráfico de dispersão com linha de tendência, com um ponto vermelho para o ponto destacado" src="https://raw.githubusercontent.com/voaneves/Data-Visualization-in-Python-freeCodeCamp/main/assets/logo/logo-light.svg" width="112" height="112" />
 </picture>
 
 <h1>Data Visualization in Python (freeCodeCamp)</h1>
